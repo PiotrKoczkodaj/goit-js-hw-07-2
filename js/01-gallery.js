@@ -18,13 +18,20 @@ galleryItems.forEach((item) => {
     gallery.innerHTML += markup;
 
 });
-
+ 
 gallery.onclick = (e) => {
-    e.preventDefault();
-    
-	basicLightbox.create(`
+  e.preventDefault();
+
+     const modal = document.querySelector('script.div.basicLightbox--visible');
+  console.log(modal)
+
+ const instance = basicLightbox.create(`
 		<img width="1400" height="900" src="${e.target.dataset.source}">
-	`).show()
+	`).show();
+
+;
 
 }
+
+
 
