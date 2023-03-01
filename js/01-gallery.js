@@ -4,16 +4,27 @@ const gallery = document.querySelector('.gallery');
 
 galleryItems.forEach((item) => {
     
-    const markup = `<div><img src="${item.preview}" alt="${item.description}"width ="372px" height="240"></div>`;
+    const markup = `<div class="gallery__item">
+  <a class="gallery__link" href="${item.original}">
+    <img
+      class="gallery__image"
+      src="${item.preview}"
+      data-source="${item.original}"
+      alt="${item.description}"
+    />
+  </a>
+</div>`
+
     gallery.innerHTML += markup;
 
-})
+});
 
-const originalImage = () => {
+gallery.onclick = (e) => {
+    e.preventDefault();
     
-    gallery.innerHTML = `<div><img src="${item.original}" alt="${item.description}"width ="372px" height="240"></div>`;
+	basicLightbox.create(`
+		<img width="1400" height="900" src="${e.target.dataset.source}">
+	`).show()
 
 }
-gallery.addEventListener('click',originalImage)
-console.log(gallery)
-console.log(galleryItems);
+
