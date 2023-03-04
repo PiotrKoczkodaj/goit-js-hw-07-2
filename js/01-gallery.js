@@ -28,11 +28,11 @@ gallery.onclick = (e) => {
 	`).show();
 
   const modal = document.querySelector('.basicLightbox');
-  window.addEventListener('keydown',(e)=>{console.log(e.code)})
-  console.log(e)
-  if (e.code === 'Escape') {
+  document.addEventListener('keydown', (e) => {
+   if (e.code === 'Escape') {
     modal.style.display = 'none';
-}
+}})
+  
 }
 
 
